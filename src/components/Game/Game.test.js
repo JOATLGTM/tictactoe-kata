@@ -33,4 +33,14 @@ describe('Game component', () => {
         expect(component.find('button').last().text()).toBe('O')
     })
 
+    it('should tell you if someone won', () => {
+        const component = mount(<Game />)
+        const moveSequence = [0, 3, 1, 4, 2];
+    
+        moveSequence.forEach(index => {
+          component.find('button').at(index).simulate('click');
+        });
+    
+        expect(component.find('.result').text()).toBe('Player One Wins!');
+      });
 })
