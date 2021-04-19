@@ -5,8 +5,8 @@ import './board.css'
 export class Board extends Component {
     renderSquare(i) {
         return <Square 
-            value={''}
-            onClick={this.props.onClick}
+            value={this.props.squares[i]}
+            onClick={() => this.props.onClick(i)}
         />;
       }
     

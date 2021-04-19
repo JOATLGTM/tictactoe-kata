@@ -21,7 +21,7 @@ describe('Game component', () => {
 
     it(`it should render 'X' when clicked`, () => {
         const component = mount(<Game />)
-        component.find('button').simulate('click')
-        expect(component.find('button').text()).toBe('X')
+        component.find('button').first().simulate('click')
+        expect(component.find('button').first().text()).toBe('X')
     })
 })
