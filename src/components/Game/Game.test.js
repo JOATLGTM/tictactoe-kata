@@ -19,6 +19,12 @@ describe('Game component', () => {
         expect(component.find('.player-prompt').text()).toBe(`Player one's turn`)
     })
 
+    it('should keep track of whose turn it is', () => {
+        const component = mount(<Game />)
+        component.find('button').first().simulate('click')
+        expect(component.find('.player-prompt').text()).toBe(`Player two's turn`)
+    });
+
     it(`should render 'X' when clicked and 'O' on second click`, () => {
         const component = mount(<Game />)
         component.find('button').first().simulate('click')
