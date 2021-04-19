@@ -5,6 +5,7 @@ import Square from './Square'
 describe('Square component', () => {
     let component;
     let mockCallBack;
+    
     beforeEach(() => {
         mockCallBack = jest.fn()
         component = shallow(<Square onClick={mockCallBack}/>)

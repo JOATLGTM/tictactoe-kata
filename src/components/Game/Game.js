@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function Game() {
-    return (
-        <div>
+export default class Game extends Component {
+    constructor(props){
+        super(props)
+        this.state = {
             
-        </div>
-    )
+        }
+    }
+
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+    }
 }
