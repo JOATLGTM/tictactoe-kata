@@ -5,7 +5,7 @@ export class Board extends Component {
     renderSquare(i) {
         return <Square 
             value={''}
-            onClick={''}
+            onClick={this.props.onClick}
         />;
       }
     
