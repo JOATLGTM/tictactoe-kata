@@ -40,6 +40,16 @@ export default class Game extends Component {
         })
     }
 
+    resetGame = () => {
+        this.setState({
+            history: [{
+                squares: Array(9).fill(null)
+            }],
+            playerOne: true,
+            increment: 0,
+        })
+      }
+
     render() {
         const history = this.state.history;
         const current = history[history.length - 1]
@@ -65,6 +75,7 @@ export default class Game extends Component {
                 </div>
                 <div>
                     {this.state.history.length === 1 ? '' : <button className="prevBtn" onClick={() => this.prevState()}>prev</button>}
+                    <button className="resetBtn" onClick={() => this.resetGame()}>Reset</button>
                 </div>
             </div>
         )

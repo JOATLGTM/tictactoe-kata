@@ -67,14 +67,15 @@ describe('Game component', () => {
         const component = mount(<Game />)
         const moveSequence = [0, 1];
 
-        component.find('button').first().simulate()
-        component.find('button').last().simulate()
+        moveSequence.forEach(index => {
+            component.find('button').at(index).simulate('click');
+        });
+
         expect(component.find('button').first().text()).toBe('X')
-        expect(component.find('button').last().text()).toBe('O')
+        expect(component.find('button').at(1).text()).toBe('O')
 
-        component.find('reset').simulate('click')
+        component.find('.resetBtn').simulate('click')
         expect(component.find('button').first().text()).toBe('')
-        expect(component.find('button').last().text()).toBe('')
-
+        expect(component.find('button').at(1).text()).toBe('')
     })
 })
