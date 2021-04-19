@@ -29,8 +29,8 @@ describe('Game component', () => {
         const component = mount(<Game />)
         component.find('button').first().simulate('click')
         expect(component.find('button').first().text()).toBe('X')
-        component.find('button').last().simulate('click')
-        expect(component.find('button').last().text()).toBe('O')
+        component.find('button').at(2).simulate('click')
+        expect(component.find('button').at(2).text()).toBe('O')
     })
 
     it('should tell you if someone won', () => {
@@ -57,8 +57,9 @@ describe('Game component', () => {
 
     it('should rewind when you click the rewind button', () => {
         const component = mount(<Game />)
-        component.find('button').last().simulate('click');
-        component.find('.prevState').simulate('click');
-        expect(component.find('button').last().text()).toBe('');
+        component.find('button').first().simulate('click');
+        expect(component.find('button').first().text()).toBe('X');
+        component.find('.prevBtn').simulate('click');
+        expect(component.find('button').first().text()).toBe('');
     });
 })
