@@ -54,4 +54,11 @@ describe('Game component', () => {
     
         expect(component.find('.result').text()).toBe('Draw');
     });
+
+    it('should rewind when you click the rewind button', () => {
+        const component = mount(<Game />)
+        component.find('button').last().simulate('click');
+        component.find('.reset').simulate('click');
+        expect(component.find('button').last().text()).toBe('');
+    });
 })

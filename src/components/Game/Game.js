@@ -8,7 +8,8 @@ export default class Game extends Component {
             history: [{
                 squares: Array(9).fill(null)
             }],
-            playerOne: true,        
+            playerOne: true,     
+            increment: 0   
         }
     }
 
@@ -25,6 +26,7 @@ export default class Game extends Component {
             squares: squares,
           }]),
             playerOne: !this.state.playerOne,
+            increment: history.length
         });
     }
 
@@ -34,8 +36,11 @@ export default class Game extends Component {
         const winner = calculateWinner(current.squares);
         let status;
         if (winner) {
-          status = winner === 'X' ? 'Player One Wins!' : 'Player Two Wins!'
-        } 
+            status = winner === 'X' ? 'Player One Wins!' : 'Player Two Wins!'
+        } else if (this.state.increment === 9 && !winner) {
+            status = 'Draw';
+        }
+
         return (
             <div>
                 <Board 
@@ -43,7 +48,7 @@ export default class Game extends Component {
                     onClick={(i) => this.handleClick(i)}
                 />
                 <div className="player-prompt">
-                    {winner ? '' : this.state.playerOne ? `Player one's turn` : `Player two's turn`}
+                    {winner || this.state.increment === 9 ? '' : this.state.playerOne ? `Player one's turn` : `Player two's turn`}
                 </div>
                 <div className="result">
                     {status}
