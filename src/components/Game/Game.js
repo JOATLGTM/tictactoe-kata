@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Board from '../Board/Board'
+import './game.css'
 
 export default class Game extends Component {
     constructor(props){
@@ -62,7 +63,7 @@ export default class Game extends Component {
         }
 
         return (
-            <div>
+            <div className="game">
                 <Board 
                     squares={current.squares}
                     onClick={(i) => this.handleClick(i)}
