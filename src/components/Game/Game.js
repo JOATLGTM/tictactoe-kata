@@ -30,6 +30,16 @@ export default class Game extends Component {
         });
     }
 
+    prevState = () => {
+        this.state.history.pop();
+        let prevHistory = this.state.history
+        this.setState({
+            history: prevHistory,
+            increment: this.state.increment - 1,
+            playerOne: !this.state.playerOne
+        })
+    }
+
     render() {
         const history = this.state.history;
         const current = history[history.length - 1]
@@ -52,6 +62,9 @@ export default class Game extends Component {
                 </div>
                 <div className="result">
                     {status}
+                </div>
+                <div>
+                    {this.state.history.length === 1 ? '' : <button className="prevBtn" onClick={() => this.prevState()}>prev</button>}
                 </div>
             </div>
         )
