@@ -18,4 +18,10 @@ describe('Game component', () => {
         const component = mount(<Game />)
         expect(component.find('.player-prompt').text()).toBe(`Player one's turn`)
     })
+
+    it(`it should render 'X' when clicked`, () => {
+        const component = mount(<Game />)
+        component.find('button').simulate('click')
+        expect(component.find('button').text()).toBe('X')
+    })
 })
