@@ -62,4 +62,19 @@ describe('Game component', () => {
         component.find('.prevBtn').simulate('click');
         expect(component.find('button').first().text()).toBe('');
     });
+
+    it('should reset state when you click the reset button', () => {
+        const component = mount(<Game />)
+        const moveSequence = [0, 1];
+
+        component.find('button').first().simulate()
+        component.find('button').last().simulate()
+        expect(component.find('button').first().text()).toBe('X')
+        expect(component.find('button').last().text()).toBe('O')
+
+        component.find('reset').simulate('click')
+        expect(component.find('button').first().text()).toBe('')
+        expect(component.find('button').last().text()).toBe('')
+
+    })
 })
