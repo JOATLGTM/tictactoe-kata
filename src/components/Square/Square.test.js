@@ -12,4 +12,11 @@ describe('Square component', () => {
         const component = shallow(<Square />)
         expect(component.find('button').length).toEqual(1)
     })
+
+    it('button is clickable', () => {
+        let mockCallBack = jest.fn()
+        const component = shallow(<Square onClick={mockCallBack}/>)
+        component.find('button').simulate('click')
+        expect(mockCallBack.mock.calls.length).toEqual(1);
+    })
 })
