@@ -13,4 +13,9 @@ describe('Game component', () => {
         const component = mount(<Game />)
         expect(component.containsMatchingElement(<Board />)).toEqual(true)
     })
+
+    it(`should prompt the player`, () => {
+        const component = mount(<Game />)
+        expect(component.find('.player-prompt').text()).toBe(`Player one's turn`)
+    })
 })
