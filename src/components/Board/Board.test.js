@@ -15,4 +15,12 @@ describe('Board component', () => {
         let component = mount(<Board squares={squares}/>);
         expect(component.containsAllMatchingElements([<Square />])).toEqual(true)
     })
+
+    it('calls onClick event on a board square', () => {
+        const onClick = jest.fn();
+        let squares = Array(9).fill(<Square onClick={onClick} value={''}/>)
+        let component = mount(<Board squares={squares} onClick={onClick}/>);
+        component.find('button').first().simulate('click');
+        expect(onClick.mock.calls.length).toEqual(1)
+      })
 })
