@@ -20,7 +20,7 @@ describe('Board component', () => {
         jest.clearAllMocks();
     })
 
-    it('renders component', () => { 
+    it('renders component', () => {
         expect(component).toHaveLength(1)
     })
 
