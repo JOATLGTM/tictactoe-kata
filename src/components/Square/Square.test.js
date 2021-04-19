@@ -19,4 +19,10 @@ describe('Square component', () => {
         component.find('button').simulate('click')
         expect(mockCallBack.mock.calls.length).toEqual(1);
     })
+
+    it('should default to an empty state', () => {
+        let mockCallBack = jest.fn()
+        const component = shallow(<Square onClick={mockCallBack}/>)
+        expect(component.text()).toBe('')
+    })
 })
