@@ -42,5 +42,16 @@ describe('Game component', () => {
         });
     
         expect(component.find('.result').text()).toBe('Player One Wins!');
-      });
+    });
+
+    it('should tell you if its a draw', () => {
+        const component = mount(<Game />)
+        const moveSequence = [0, 1, 2, 6, 7, 8, 3, 4, 5];
+    
+        moveSequence.forEach(index => {
+          component.find('button').at(index).simulate('click');
+        });
+    
+        expect(component.find('.result').text()).toBe('Draw');
+    });
 })
