@@ -25,4 +25,16 @@ describe('Square component', () => {
         const component = shallow(<Square onClick={mockCallBack}/>)
         expect(component.text()).toBe('')
     })
+
+    it(`should render string 'X' if props passed down`, () => {
+        let mockCallBack = jest.fn()
+        const component = shallow(<Square onClick={mockCallBack} value={'X'}/>)
+        expect(component.text()).toBe('X')
+    })
+
+    it(`should render string 'O' if props passed down`, () => {
+        let mockCallBack = jest.fn()
+        const component = shallow(<Square onClick={mockCallBack} value={'O'}/>)
+        expect(component.text()).toBe('O')
+    })
 })
