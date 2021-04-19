@@ -7,4 +7,9 @@ describe('Square component', () => {
         const component = shallow(<Square />)
         expect(component).toHaveLength(1)
     })
+
+    it('renders <button />', () => {
+        const component = shallow(<Square />)
+        expect(component.find('button').length).toEqual(1)
+    })
 })
