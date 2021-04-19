@@ -15,6 +15,9 @@ export default class Game extends Component {
         return (
             <div>
                 <Board />
+                <div className="player-prompt">
+                    {this.state.playerOne ? `Player one's` : `Player two's`} turn
+                </div>
             </div>
         )
     }
