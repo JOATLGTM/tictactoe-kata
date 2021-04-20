@@ -55,7 +55,11 @@ export default class Game extends Component {
         const history = this.state.history;
         const current = history[history.length - 1]
         const winner = calculateWinner(current.squares);
+        let playersTurn = winner || this.state.increment === 9 ? '' : this.state.playerOne ? `Player one's turn` : `Player two's turn`
+        let undoButton = this.state.history.length === 1 ? '' : <button className="prevBtn" onClick={() => this.prevState()}>UNDO</button>
+        let resetButton = this.state.increment === 9 || winner ? <button className="resetBtn" onClick={() => this.resetGame()}>RESET</button> : ''
         let status;
+        
         if (winner) {
             status = winner === 'X' ? 'Player One Wins!' : 'Player Two Wins!'
         } else if (this.state.increment === 9 && !winner) {
@@ -68,15 +72,17 @@ export default class Game extends Component {
                     squares={current.squares}
                     onClick={(i) => this.handleClick(i)}
                 />
-                <div className="player-prompt">
-                    {winner || this.state.increment === 9 ? '' : this.state.playerOne ? `Player one's turn` : `Player two's turn`}
-                </div>
-                <div className="result">
-                    {status}
-                </div>
-                <div>
-                    {this.state.history.length === 1 ? '' : <button className="prevBtn" onClick={() => this.prevState()}>prev</button>}
-                    <button className="resetBtn" onClick={() => this.resetGame()}>Reset</button>
+                <div className="controller">
+                    <div className="player-prompt">
+                        {playersTurn}
+                    </div>
+                    <div className="result">
+                        {status}
+                    </div>
+                    <div className="controller-buttons">
+                        {undoButton}
+                        {resetButton}
+                    </div>
                 </div>
             </div>
         )
