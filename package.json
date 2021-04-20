@@ -1,6 +1,6 @@
 {
-  "homepag":"https://JOATLGTM.github.io/tictactoe-kata",
   "name": "tictactoe-kata",
+  "homepage":"https://JOATLGTM.github.io/tictactoe-kata",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
